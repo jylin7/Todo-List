@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+  <h1><%= title %></h1>
+  <form action="/create" method="post" accept-charset="utf-8">
+      <input type="text" name="content" />
+  </form>
+
+  <ul>
+  <% todos.forEach(function( todo ){ %>
+    <li>
+      <p>
+        <span>
+          <a href="/edit/<%= todo._id %>" title="Update this todo item"><%= todo.content %></a>
+        </span>
+        <span>
+          <a href="/destroy/<%= todo._id %>" title="Delete this todo item">Delete</a>
+        </span>
+          <input type="checkbox" id="done" name="done"
+               value="done" unchecked />
+      </p>
+    </li>
+  <% }); %>
+  </ul>
+
+  </body>
+</html>
